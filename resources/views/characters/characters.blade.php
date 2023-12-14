@@ -8,22 +8,20 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    {{--@foreach ($characters as $character)
-        <div>Personajes: {{->character}}</div>
-    @endforeach--}}
 
 
 
     @foreach ($characters as $character)
     <div class="Characters">
     @if ($loop->index < 3)
+        <img src="{{$character['img']}}">
         <div>{{$character['name']}} </div>
         <div>{{$character['alias']}}</div>
         <div>{{$character['movie']}}</div>
         <div>{{$character['age']}}</div>
         <div>{{$character['species']}}</div>
         <div>{{$character['gender']}}</div>
-        <img src="{{$character['img']}}">
+
 
     @endif
     @endforeach
