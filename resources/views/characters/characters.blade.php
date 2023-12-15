@@ -13,7 +13,6 @@
 
     @foreach ($characters as $character)
     <div class="Characters">
-    @if ($loop->index < 3)
         <img src="{{$character['img']}}">
         <div>{{$character['name']}} </div>
         <div>{{$character['alias']}}</div>
@@ -21,11 +20,7 @@
         <div>{{$character['age']}}</div>
         <div>{{$character['species']}}</div>
         <div>{{$character['gender']}}</div>
-
-
-    @endif
     @endforeach
-
     </div>
 
 </body>
