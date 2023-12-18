@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function(){
+/*Route::get('/', function(){
     return "Hola, soy Juan, bienvenido a FluxVid";
 })->name('index');
 
@@ -24,7 +24,21 @@ Route::get('/movies', function(){
 
 Route::get('movies/{id}', function($id){
     return "Esta es la movie: $id";
+})->where('id', '[0-9]+')->name('movies.id');*/
+
+//NUEVAS
+Route::get('/', function(){
+    return view('index');
+})->name('index');
+
+Route::get('/movies', function(){
+    return view('movies.list');
+})->name('movies');
+
+/*Route::get('movies/{id}', function($id){
+    return view('movies.movie', compact('id'));
 })->where('id', '[0-9]+')->name('movies.id');
+*/
 
 Route::get('characters', function () {
     $characters = [
