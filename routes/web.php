@@ -35,10 +35,10 @@ Route::get('/movies', function(){
     return view('movies.list');
 })->name('movies');
 
-/*Route::get('movies/{id}', function($id){
+Route::get('movies/{id}', function($id){
     return view('movies.movie', compact('id'));
 })->where('id', '[0-9]+')->name('movies.id');
-*/
+
 
 Route::get('characters', function () {
     $characters = [
