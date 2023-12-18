@@ -11,16 +11,18 @@
 
 
 
-    @foreach ($characters as $character)
     <div class="Characters">
-        <img src="{{$character['img']}}">
-        <div>{{$character['name']}} </div>
-        <div>{{$character['alias']}}</div>
-        <div>{{$character['movie']}}</div>
-        <div>{{$character['age']}}</div>
-        <div>{{$character['species']}}</div>
-        <div>{{$character['gender']}}</div>
-    @endforeach
+        @foreach ($characters as $character)
+            <div class="Character">
+                <img src="{{$character['img']}}">
+                <div>{{$character['name']}}</div>
+                <div>{{$character['alias']}}</div>
+                <div>{{$character['movie']}}</div>
+                <div>{{$character['age']}}</div>
+                <div>{{$character['species']}}</div>
+                <div>{{$character['gender']}}</div>
+            </div>
+        @endforeach
     </div>
 
 </body>
