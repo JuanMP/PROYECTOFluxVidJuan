@@ -30,9 +30,9 @@ Route::get('movies/{id}', function($id){
 
 //NUEVAS
 
-Route::get('/', function(){
-    return view('index');
-})->name('index');
+    Route::get('/', function(){
+        return view('index');
+    })->name('index');
 
 // Route::get('/movies', function(){
 //     return view('movies.index');
@@ -61,5 +61,5 @@ Route::get('characters', function () {
 //AÑADIDO CONTROLADORES
 Route::resource('movies', MovieController::class)->except(['store', 'update', 'destroy']);
 
-
+//Route::get('index', [MovieController::class, 'index'])->name('index');
 

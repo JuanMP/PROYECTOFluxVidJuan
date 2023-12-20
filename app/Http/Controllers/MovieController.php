@@ -11,7 +11,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        //MODIFICADO
+        return view('movies.index');
     }
 
     /**
