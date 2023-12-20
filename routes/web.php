@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\MovieController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,13 +34,13 @@ Route::get('/', function(){
     return view('index');
 })->name('index');
 
-Route::get('/movies', function(){
-    return view('movies.index');
-})->name('movies');
+// Route::get('/movies', function(){
+//     return view('movies.index');
+// })->name('movies');
 
-Route::get('movies/{id}', function($id){
-    return view('movies.show', compact('id'));
-})->where('id', '[0-9]+')->name('movies.id');
+// Route::get('movies/{id}', function($id){
+//     return view('movies.show', compact('id'));
+// })->where('id', '[0-9]+')->name('movies.id');
 
 
 Route::get('characters', function () {
@@ -57,6 +59,7 @@ Route::get('characters', function () {
 
 
 //AÑADIDO CONTROLADORES
-use App\Http\Controllers\MovieController;
 Route::resource('movies', MovieController::class)->except(['store', 'update', 'destroy']);
+
+
 
