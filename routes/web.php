@@ -27,16 +27,17 @@ Route::get('movies/{id}', function($id){
 })->where('id', '[0-9]+')->name('movies.id');*/
 
 //NUEVAS
+
 Route::get('/', function(){
     return view('index');
 })->name('index');
 
 Route::get('/movies', function(){
-    return view('movies.list');
+    return view('movies.index');
 })->name('movies');
 
 Route::get('movies/{id}', function($id){
-    return view('movies.movie', compact('id'));
+    return view('movies.show', compact('id'));
 })->where('id', '[0-9]+')->name('movies.id');
 
 
@@ -53,3 +54,9 @@ Route::get('characters', function () {
     ];
     return view('characters.characters', compact('characters'));
 });
+
+
+//AÑADIDO CONTROLADORES
+use App\Http\Controllers\MovieController;
+Route::resource('movies', MovieController::class)->except(['store', 'update', 'destroy']);
+
