@@ -38,6 +38,7 @@ class MovieController extends Controller
     public function show(string $id)
     {
         //FALTA DEVOLVER VISTA
+        return view('movies.show');
     }
 
     /**

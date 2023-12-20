@@ -3,8 +3,8 @@
 @section('title', 'Ficha de la Película')
 
 @section('content')
-<h1>Ficha de la Película {{$id}}</h1>
+<h1>Ficha de la Película {{'movies.id'}}</h1>
 
 <!-- EDITAR PELICULA ACT5 -->
-<a href="{{ route('movies.edit', $id) }}">Editar Película</a>
+<a href="{{ route('movies.edit', 'movies.id') }}">Editar Película</a>
 @endsection
