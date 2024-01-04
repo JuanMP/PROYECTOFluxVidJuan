@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MovieController;
 
+//ACT6 MIGRACIONES
+use App\Http\Controllers\DirectorController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +64,11 @@ Route::get('characters', function () {
 
 //AÑADIDO CONTROLADORES
 Route::resource('movies', MovieController::class)->except(['store', 'update', 'destroy']);
+
+//AÑADIDO CONTROLADORES ACT6
+Route::resource('directors', MovieController::class)->except(['store', 'update', 'destroy']);
+
+
 
 //Route::get('index', [MovieController::class, 'index'])->name('index');
 

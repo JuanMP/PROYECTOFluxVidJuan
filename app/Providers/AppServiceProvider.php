@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+//AÑADIDO ACT6 MIGRACIONES, ESTABA VACIO
+use Illuminate\Support\Facades\Schema;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -19,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        //AÑADIDO ACT6 MIGRACIONES, ESTABA VACIO
+        Schema::defaultStringLength(191);
     }
 }
