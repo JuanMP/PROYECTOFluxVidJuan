@@ -8,6 +8,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\DirectorController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,13 +63,18 @@ Route::get('characters', function () {
 });
 
 
+
+//Route::get('index', [MovieController::class, 'index'])->name('index');
+
 //AÑADIDO CONTROLADORES
 Route::resource('movies', MovieController::class)->except(['store', 'update', 'destroy']);
 
 //AÑADIDO CONTROLADORES ACT6
 Route::resource('directors', DirectorController::class)->except(['store', 'update', 'destroy']);
 
+//ACT 7 MOVIE CONTROLADOR
+Route::resource('movies', MovieController::class)->only(['index', 'show']);
 
 
-//Route::get('index', [MovieController::class, 'index'])->name('index');
+
 
