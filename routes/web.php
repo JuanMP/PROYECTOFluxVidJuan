@@ -66,7 +66,7 @@ Route::get('characters', function () {
 Route::resource('movies', MovieController::class)->except(['store', 'update', 'destroy']);
 
 //AÑADIDO CONTROLADORES ACT6
-Route::resource('directors', MovieController::class)->except(['store', 'update', 'destroy']);
+Route::resource('directors', DirectorController::class)->except(['store', 'update', 'destroy']);
 
 
 

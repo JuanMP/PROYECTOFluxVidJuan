@@ -37,8 +37,8 @@ class DirectorController extends Controller
     public function show(string $id)
     {
         //ACT6
-        return view('directors.show');
-        //return view('directors.show', compact('id'));
+        //return view('directors.show');
+        return view('directors.show', compact('id'));
 
     }
 
