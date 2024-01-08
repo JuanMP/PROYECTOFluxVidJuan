@@ -67,14 +67,17 @@ Route::get('characters', function () {
 //Route::get('index', [MovieController::class, 'index'])->name('index');
 
 //AÑADIDO CONTROLADORES
-Route::resource('movies', MovieController::class)->except(['store', 'update', 'destroy']);
+//Route::resource('movies', MovieController::class)->except(['store', 'update', 'destroy']);
 
 //AÑADIDO CONTROLADORES ACT6
-Route::resource('directors', DirectorController::class)->except(['store', 'update', 'destroy']);
+//Route::resource('directors', DirectorController::class)->except(['store', 'update', 'destroy']);
 
 //ACT 7 MOVIE CONTROLADOR
-Route::resource('movies', MovieController::class)->only(['index', 'show']);
+//Route::resource('movies', MovieController::class)->only(['index', 'show']);
+
+//ACT 8 CONTROLADORES CON TODO
+Route::resource('movies', MovieController::class);
+Route::resource('directors', DirectorController::class);
 
 
-
-
+Route::get('/directors/nationality/{country}', [DirectorController::class, 'getDirectorsFromNationality']);

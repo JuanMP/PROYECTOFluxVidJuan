@@ -14,4 +14,6 @@
             </li>
         @endforeach
     </ul>
+
+    {{ $movies->links() }}
 @endsection

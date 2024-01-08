@@ -15,7 +15,9 @@ class MovieController extends Controller
     public function index()
     {
         //MODIFICADO
-        $movies = Movie::all();
+        //ACT7 $movies = Movie::all();
+        //ACT7b
+        $movies = Movie::where('visibility', 1)->paginate(6);
         return view('movies.index', compact('movies'));
 
     }

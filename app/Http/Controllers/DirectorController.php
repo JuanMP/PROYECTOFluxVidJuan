@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Director;
+
 class DirectorController extends Controller
 {
     /**
@@ -12,7 +14,10 @@ class DirectorController extends Controller
     public function index()
     {
         //ACT 6
-        return view('directors.index');
+        //return view('directors.index');
+        //ACT 8
+        $directors = Director::all();
+        return view('directors.index', compact('directors'));
     }
 
     /**
@@ -64,5 +69,11 @@ class DirectorController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function getDirectorsFromNationality($country)
+    {
+        $directors = Director::where('nationality', $country)->get();
+        return view('directors.nationality', compact('country', 'directors'));
     }
 }
