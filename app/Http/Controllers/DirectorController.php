@@ -11,7 +11,8 @@ class DirectorController extends Controller
      */
     public function index()
     {
-        //
+        //ACT 6
+        return view('directors.index');
     }
 
     /**
@@ -35,7 +36,10 @@ class DirectorController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //ACT6
+        return view('directors.show');
+        //return view('directors.show', compact('id'));
+
     }
 
     /**
