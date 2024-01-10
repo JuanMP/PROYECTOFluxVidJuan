@@ -44,8 +44,13 @@ class MovieController extends Controller
      */
     public function show(string $id)
     {
-        //FALTA DEVOLVER VISTA
-        return view('movies.show');
+        //FALTA DEVOLVER VISTA ACT 9
+        //return view('movies.show', compact('id'));
+        $movie = Movie::findOrFail($id);
+        if($movie->visibility==0)
+        return redirect()->route('movies.index');
+        //error
+        return view('movies.show', compact('movie'));
     }
 
     /**
@@ -70,6 +75,8 @@ class MovieController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //ACT 9
+        Movie::findOrFail($id)->delete();
+        return redirect()->route('movies.index');
     }
 }
