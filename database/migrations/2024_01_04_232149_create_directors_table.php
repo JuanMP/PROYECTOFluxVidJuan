@@ -16,7 +16,7 @@ return new class extends Migration
             //si quisieramos ponerlo pero no es necesario, $table->id()->autoIncrement();
             $table->string('name', 20);
             $table->date('birthday');
-            $table->string('nacionality', 20);
+            $table->string('nationality', 20);
             $table->timestamps();
         });
     }
