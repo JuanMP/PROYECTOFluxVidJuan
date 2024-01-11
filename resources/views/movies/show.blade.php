@@ -5,11 +5,9 @@
 @section('content')
     <h1>Ficha de la Película {{$movie->id}}</h1>
 
-    <!-- EDITAR PELICULA ACT5 -->
-    <a href="{{ route('movies.edit', 'movies.id') }}">Editar Película</a>
+
 
     <!-- ACT 9 MOSTRAR INFO DE LA PELÍCULA, ENLACE PARA EDITAR Y FORMULARIO -->
-
             <li>
                     Título: {{ $movie->title }}
                     <br>
@@ -19,6 +17,10 @@
                     <br>
                     Puntuación: {{ $movie->rating }}
             </li>
+            <br>
+             <!-- EDITAR PELICULA ACT5 -->
+    <a href="{{ route('movies.edit', $movie->id) }}">Editar Película</a>
+    <br>
         <form action="{{ route('movies.destroy', $movie->id) }}" method="post">
             @csrf
             @method('delete')

@@ -77,8 +77,8 @@ Route::get('characters', function () {
 
 //ACT 8 CONTROLADORES CON TODO
 Route::get('/directors/nationality/{country}', [DirectorController::class, 'getDirectorsFromNationality']);
-Route::resource('movies', MovieController::class);
+
 Route::resource('directors', DirectorController::class);
 
-
+Route::resource('movies', MovieController::class);
 

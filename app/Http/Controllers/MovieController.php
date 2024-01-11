@@ -60,7 +60,9 @@ class MovieController extends Controller
     public function edit(string $id)
     {
         //MODIFICADO
-        return view('movies.edit');
+        $movie = Movie::findOrFail($id);
+
+    return view('movies.edit', compact('movie'));
     }
 
     /**
