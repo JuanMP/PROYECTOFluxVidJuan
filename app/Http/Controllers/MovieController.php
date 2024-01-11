@@ -47,8 +47,9 @@ class MovieController extends Controller
         //FALTA DEVOLVER VISTA ACT 9
         //return view('movies.show', compact('id'));
         $movie = Movie::findOrFail($id);
-        if($movie->visibility==0)
+        if($movie->visibility==0){
         return redirect()->route('movies.index');
+        }
         //error
         return view('movies.show', compact('movie'));
     }
