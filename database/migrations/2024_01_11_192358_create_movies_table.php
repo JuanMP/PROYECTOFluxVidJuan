@@ -12,15 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('movies', function (Blueprint $table) {
-            $table->id();           //por defecto ya es autoincremento
-            //si quisieramos ponerlo pero no es necesario, $table->id()->autoIncrement();
+            $table->id();
             $table->string('title', 50);
             $table->integer('year');
             $table->text('plot');
             $table->decimal('rating', 2, 1);
             $table->boolean('visibility');
+            $table->foreignId('director_id')->constrained();
             $table->timestamps();
-
         });
     }
 
@@ -29,6 +28,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('movies');
+        Schema::table('movies', function (Blueprint $table) {
+            $table->dropForeign(['director_id']);
+            $table->dropIfExists('movies');
+        });
     }
 };

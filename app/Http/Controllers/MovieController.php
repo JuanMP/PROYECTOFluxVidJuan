@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-//añadir ACT7
 use App\Models\Movie;
+use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
@@ -14,7 +12,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //MODIFICADO
+        //
+         //MODIFICADO
         //ACT7 $movies = Movie::all();
         //ACT7b
         $movies = Movie::where('visibility', 1)->paginate(6);
@@ -27,8 +26,9 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //MODIFICADO
-        return view('movies.create');
+        //
+         //MODIFICADO
+         return view('movies.create');
     }
 
     /**
@@ -42,35 +42,33 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Movie $movie)
     {
-        //FALTA DEVOLVER VISTA ACT 9
-        //return view('movies.show', compact('id'));
-        $movie = Movie::findOrFail($id);
+        //
         if($movie->visibility==0){
         return redirect()->route('movies.index');
         }
-        //error
         return view('movies.show', compact('movie'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Movie $movie)
     {
+        //
         //MODIFICADO
         $movie = Movie::findOrFail($id);
-    return view('movies.edit', compact('movie'));
-
+        return view('movies.edit', compact('movie'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Movie $movie)
     {
-        // Valida los datos del formulario
+        //
+        //Valida los datos del formulario
         $request->validate([
             'title' => 'required|string|max:255',
             'year' => 'required|integer|min:1900|max:' . date('Y'),
@@ -89,15 +87,16 @@ class MovieController extends Controller
             'rating' => $request->input('rating'),
         ]);
 
-        // Redirecciona a la vista de detalles de la película
+        //Redirecciona a la vista de detalles de la película
         return redirect()->route('movies.show', $id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Movie $movie)
     {
+        //
         //ACT 9
         Movie::findOrFail($id)->delete();
         return redirect()->route('movies.index');
