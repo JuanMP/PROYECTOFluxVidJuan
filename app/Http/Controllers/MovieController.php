@@ -61,8 +61,8 @@ class MovieController extends Controller
     {
         //MODIFICADO
         $movie = Movie::findOrFail($id);
-
     return view('movies.edit', compact('movie'));
+
     }
 
     /**
@@ -70,7 +70,27 @@ class MovieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Valida los datos del formulario
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'year' => 'required|integer|min:1900|max:' . date('Y'),
+            'plot' => 'required|string',
+            'rating' => 'required|numeric|min:0|max:10',
+        ]);
+
+        //Recupera la película desde la base de datos
+        $movie = Movie::findOrFail($id);
+
+        //Actualiza los campos de la película
+        $movie->update([
+            'title' => $request->input('title'),
+            'year' => $request->input('year'),
+            'plot' => $request->input('plot'),
+            'rating' => $request->input('rating'),
+        ]);
+
+        // Redirecciona a la vista de detalles de la película
+        return redirect()->route('movies.show', $id);
     }
 
     /**
