@@ -14,4 +14,8 @@ class Movie extends Model
         'plot',
         'rating',
     ];
+
+    public function Director(){
+        return $this->belongsTo(Director::class);
+    }
 }

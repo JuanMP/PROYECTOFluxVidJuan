@@ -43,7 +43,9 @@ class DirectorController extends Controller
     {
         //ACT6
         //return view('directors.show');
-        return view('directors.show', compact('id'));
+        //return view('directors.show', compact('id'));
+        //ACT 11
+        return view('directors.show', compact('director'));
 
     }
 
