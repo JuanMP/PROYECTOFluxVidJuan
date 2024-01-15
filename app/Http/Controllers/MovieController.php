@@ -58,7 +58,7 @@ class MovieController extends Controller
     {
         //
         //MODIFICADO
-        $movie = Movie::findOrFail($id);
+        //$movie = Movie::findOrFail($id); YA NO ES NECESARIO DESPUES DE MCR
         return view('movies.edit', compact('movie'));
     }
 
@@ -77,7 +77,7 @@ class MovieController extends Controller
         ]);
 
         //Recupera la película desde la base de datos
-        $movie = Movie::findOrFail($id);
+        //$movie = Movie::findOrFail($id);
 
         //Actualiza los campos de la película
         $movie->update([
@@ -88,7 +88,7 @@ class MovieController extends Controller
         ]);
 
         //Redirecciona a la vista de detalles de la película
-        return redirect()->route('movies.show', $id);
+        return redirect()->route('movies.show', $movie->id);
     }
 
     /**
@@ -98,7 +98,8 @@ class MovieController extends Controller
     {
         //
         //ACT 9
-        Movie::findOrFail($id)->delete();
+        //Movie::findOrFail($id)->delete(); YA NO ES NECESARIO DESPUES DE MCR
+        $movie->delete();
         return redirect()->route('movies.index');
     }
 }
