@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('movies', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->string('title', 50);
             $table->integer('year');
             $table->text('plot');
@@ -30,7 +30,7 @@ return new class extends Migration
     {
         Schema::table('movies', function (Blueprint $table) {
             $table->dropForeign(['director_id']);
-            $table->dropIfExists('movies');
         });
+        Schema::dropIfExists('movies');
     }
 };

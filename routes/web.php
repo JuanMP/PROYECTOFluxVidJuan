@@ -7,6 +7,9 @@ use App\Http\Controllers\MovieController;
 //ACT6 MIGRACIONES
 use App\Http\Controllers\DirectorController;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+
 
 
 /*
@@ -21,31 +24,13 @@ use App\Http\Controllers\DirectorController;
 */
 
 
-/*Route::get('/', function(){
-    return "Hola, soy Juan, bienvenido a FluxVid";
-})->name('index');
 
-Route::get('/movies', function(){
-    return "Listado de películas de FluxVid";
-})->name('movies');
-
-Route::get('movies/{id}', function($id){
-    return "Esta es la movie: $id";
-})->where('id', '[0-9]+')->name('movies.id');*/
 
 //NUEVAS
 
     Route::get('/', function(){
         return view('index');
     })->name('index');
-
-// Route::get('/movies', function(){
-//     return view('movies.index');
-// })->name('movies');
-
-// Route::get('movies/{id}', function($id){
-//     return view('movies.show', compact('id'));
-// })->where('id', '[0-9]+')->name('movies.id');
 
 
 Route::get('characters', function () {
@@ -64,21 +49,14 @@ Route::get('characters', function () {
 
 
 
-//Route::get('index', [MovieController::class, 'index'])->name('index');
-
-//AÑADIDO CONTROLADORES
-//Route::resource('movies', MovieController::class)->except(['store', 'update', 'destroy']);
-
-//AÑADIDO CONTROLADORES ACT6
-//Route::resource('directors', DirectorController::class)->except(['store', 'update', 'destroy']);
-
-//ACT 7 MOVIE CONTROLADOR
-//Route::resource('movies', MovieController::class)->only(['index', 'show']);
-
 //ACT 8 CONTROLADORES CON TODO
 Route::get('/directors/nationality/{country}', [DirectorController::class, 'getDirectorsFromNationality']);
 
 Route::resource('directors', DirectorController::class);
 
-Route::resource('movies', MovieController::class);
+Route::resource('movies', MovieController::class)
+    ->parameters(['movie' => 'slug'])
+    ->missing(function (Request $request) {
+        return Redirect::route('movies.index');
+    });
 

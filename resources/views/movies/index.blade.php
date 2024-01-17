@@ -11,7 +11,7 @@
         @foreach($movies as $movie)
             <li>
                 <!-- la primera parte lista pelicula, la segunda ACT11 implementa el director de la película con su nombre -->
-                <a href="{{ route('movies.show', $movie->id) }}">{{ $movie->title }}</a> - <a href="{{ route('directors.show', $movie->director) }}"> {{$movie->director->name}}</a>
+                <a href="{{ route('movies.show', $movie->slug) }}">{{ $movie->title }}</a> - <a href="{{ route('directors.show', $movie->director) }}"> {{$movie->director->name}}</a>
             </li>
         @endforeach
     </ul>

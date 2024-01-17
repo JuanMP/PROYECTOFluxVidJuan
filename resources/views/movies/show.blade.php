@@ -3,7 +3,7 @@
 @section('title', 'Ficha de la Película')
 
 @section('content')
-    <h1>Ficha de la Película {{$movie->id}}</h1>
+    <h1>Ficha de la Película {{$movie->slug}}</h1>
 
 
 
@@ -17,9 +17,9 @@
                     Puntuación: {{ $movie->rating }}
             <br><br>
              <!-- EDITAR PELICULA ACT5 -->
-    <a href="{{ route('movies.edit', $movie->id) }}">Editar Película</a>
+    <a href="{{ route('movies.edit', $movie->slug) }}">Editar Película</a>
     <br><br>
-        <form action="{{ route('movies.destroy', $movie->id) }}" method="post">
+        <form action="{{ route('movies.destroy', $movie->slug) }}" method="post">
             @csrf
             @method('delete')
             <input type="submit" value="Eliminar">

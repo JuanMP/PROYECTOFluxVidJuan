@@ -18,4 +18,9 @@ class Movie extends Model
     public function Director(){
         return $this->belongsTo(Director::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
