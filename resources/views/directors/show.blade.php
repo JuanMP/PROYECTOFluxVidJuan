@@ -1,6 +1,6 @@
 @extends('layout')
 
-<!-- @section('title', 'Ficha del Director') -->
+@section('title', 'Ficha del Director')
 
 @section('content')
 <h1>Ficha del Director {{ $director->name }}</h1>
@@ -13,6 +13,3 @@
     @endforeach
 
 @endsection
-
-
-

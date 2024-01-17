@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Director;
 
+//ACT 13
+use App\Http\Requests\MovieRequest;
+
 class MovieController extends Controller
 {
     /**
@@ -40,7 +43,7 @@ class MovieController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MovieRequest $request)
     {
         //ACT 12
         $movie = new Movie();
@@ -85,7 +88,7 @@ class MovieController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Movie $movie)
+    public function update(MovieRequest $request, Movie $movie)
     {
 
         //ACT 12

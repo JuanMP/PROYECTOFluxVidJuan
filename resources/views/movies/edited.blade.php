@@ -4,5 +4,5 @@
 
 @section('content')
     <h1>Película Modificada</h1>
-    <p>Título de la Película: {{ $title }}</p>
+    <p>Título de la Película: {{ $movie->title }}</p>
 @endsection
