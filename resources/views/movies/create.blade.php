@@ -8,23 +8,27 @@
 
     <label for="title">Title</label>
     <input type="text" name="title" id="title">
+    @error('title') <br>Error:{{ $message }}@enderror
     <br>
 
     <label for="year">Año:</label>
     <select name="year" id="year">
         <option value="selecciona">Selecciona un año</option>
-        @for ($i=1950; $i<date('Y')+2; $i++)
-                <option value=" {{$i}}">{{$i}}</option>
+        @for ($i = 1950; $i <= 2025; $i++)
+        <option value="{{ $i }}">{{ $i }}</option>
         @endfor
     </select>
+    @error('year') <br>Error:{{ $message }}@enderror
     <br>
 
     <label for="plot">Plot</label>
     <textarea type="text" name="plot" id="plot" cols="30" rows="10"></textarea>
+    @error('plot') <br>Error:{{ $message }}@enderror
     <br>
 
     <label for="rating">Puntuacion (de 0 a 5 con un decimal):</label>
     <input type="text" name="rating" id="rating">
+    @error('rating') <br>Error:{{ $message }}@enderror
     <br>
 
     <label for="visibility">Visible:</label>
