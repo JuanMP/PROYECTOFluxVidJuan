@@ -43,6 +43,7 @@ class MovieRequest extends FormRequest
         $rules['year'] = 'required|integer|digits:4|between:1950,2025';
         $rules['plot'] = 'required|max:80';
         $rules['rating'] = 'required|numeric|between:1,5';
+        $rules['director'] = 'numeric';
 
         return $rules;
     }
@@ -62,7 +63,8 @@ class MovieRequest extends FormRequest
             'plot.max' => 'El argumento debe tener como máximo 80 carácteres',
             'rating.required' => 'Por favor, puntúa la película',
             'rating.numeric' => 'Por favor, debes introducir un número',
-            'rating.between' => 'Por favor, puntúa entre 1 y 5 estrellas'
+            'rating.between' => 'Por favor, puntúa entre 1 y 5 estrellas',
+            'director.numeric' => 'Debe seleccionar un director'
         ];
     }
 }
