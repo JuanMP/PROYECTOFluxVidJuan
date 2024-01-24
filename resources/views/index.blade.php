@@ -3,6 +3,18 @@
 @section('title', 'Página Principal')
 
 @section('content')
+
+<form action="/directors/nationality/" method="POST">
+    @csrf
+    <select name="country">
+        @foreach ($countries as $country)
+            <option value="{{ $country->nationality }}" name="{{ $country->nationality }}">{{ $country->nationality }}
+            </option>
+        @endforeach
+    </select>
+    <input type="submit" value="Enviar">
+</form>
+
 <h1>Bienvenido a FluxVid</h1>
         <p>¡Bienvenido a FluxVid, la revolucionaria aplicación de streaming de películas, donde la excelencia se encuentra con la innovación!</p>
 

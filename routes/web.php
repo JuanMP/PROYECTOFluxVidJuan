@@ -50,7 +50,10 @@ Route::get('characters', function () {
 
 
 //ACT 8 CONTROLADORES CON TODO
-Route::get('/directors/nationality/{country}', [DirectorController::class, 'getDirectorsFromNationality']);
+//Route::get('/directors/nationality/{country}', [DirectorController::class, 'getDirectorsFromNationality']);
+//ACT 14 SERVICE PROVIDER (Cambiamos a post)
+Route::post('/directors/nationality/', [DirectorController::class, 'getDirectorsFromNationality'])->name('directors.nationality');
+
 
 Route::resource('directors', DirectorController::class);
 

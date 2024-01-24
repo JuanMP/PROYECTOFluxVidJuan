@@ -73,8 +73,9 @@ class DirectorController extends Controller
         //
     }
 
-    public function getDirectorsFromNationality($country)
+    public function getDirectorsFromNationality(Request $request)
     {
+        $country = $request->input('country');
         $directors = Director::where('nationality', $country)->get();
         return view('directors.nationality', compact('country', 'directors'));
     }
