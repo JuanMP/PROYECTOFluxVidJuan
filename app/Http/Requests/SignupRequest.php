@@ -28,7 +28,7 @@ class SignupRequest extends FormRequest
             'name' => 'required|string|min:2|max:20',
             'email' => 'required|string|unique:users',
             'birthdate' => 'required|date',
-            'password' => 'required|confirmed|Rules\Password::default()',
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
     }
 
@@ -48,8 +48,7 @@ class SignupRequest extends FormRequest
             'birthdate.date' => 'La fecha de nacimiento debe ser una fecha válida',
             'password.required' => 'La contraseña es obligatoria',
             'password.confirmed' => 'La confirmación de la contraseña no coincide',
-            'password.min' => 'La contraseña debe tener como mínimo 8 caracteres',
-            'password.Rules\Password::default()' => 'La contraseña debe cumplir con los requisitos de seguridad',
+            //'password.min' => 'La contraseña debe tener como mínimo 8 caracteres',
         ];
     }
 }

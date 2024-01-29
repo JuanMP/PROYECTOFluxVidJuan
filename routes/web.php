@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Redirect;
 
 //ACT 15
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -80,3 +81,5 @@ Route::resource('movies', MovieController::class)
         return view('users.account');
     })->name('users.account')
     ->middleware('auth');
+
+    Route::get('/users/profile', [UserController::class, 'show'])->name('users.profile')->middleware('auth');

@@ -8,4 +8,17 @@
     <a href="{{ route('directors.index') }}">Lista de Directores</a>
 
 
+
+
+    @if (!auth()->check())
+    <a href="{{ route('loginForm') }}">Iniciar sesión</a>
+    <br>
+    <a href="{{ route('signupForm') }}">Registrate</a>
+    @else
+        <a href="{{ route('users.profile') }}">Mi Perfil</a>
+        <form action="{{ route('logout') }}" method="GET">
+            @csrf
+            <input type="submit" value="Cerrar sesión">
+        </form>
+    @endif
 </nav>

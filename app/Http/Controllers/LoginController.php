@@ -24,14 +24,14 @@ class LoginController extends Controller
         $user = new User();
         $user->username = $request->get('username');
         $user->name = $request->get('name');
+        $user->birthdate = $request->get('birthdate');
         $user->email = $request->get('email');
-        $user->birthdate = $request->get('password');
         $user->password = Hash::make($request->get('password'));
         $user->save();
 
         Auth::login($user);
 
-        return redirect()->route('users.account');
+        return redirect()->route('users.profile');
     }
 
     public function loginForm()
@@ -39,7 +39,7 @@ class LoginController extends Controller
         if (Auth::viaRemember()) {
             return 'Bienvenido de nuevo';
         }else if (Auth::check()) {
-            return redirect()->route('users.account');
+            return redirect()->route('users.profile');
         }else {
             return view('auth.login');
         }
@@ -51,7 +51,7 @@ class LoginController extends Controller
         $rememberLogin = ($request->get('remember')) ? true : false;
         if (Auth::guard('web')->attempt($credentials, $rememberLogin)) {
             $request->session()->regenerate();
-            return redirect()->route('users.account');
+            return redirect()->route('users.profile');
         }else {
             $error = 'Error al acceder a la aplicación';
             return view('auth.login', compact('error'));
@@ -63,7 +63,7 @@ class LoginController extends Controller
         Auth::guard('web')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('principal');
+        return redirect()->route('index');
     }
 }
 
