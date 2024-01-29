@@ -83,3 +83,6 @@ Route::resource('movies', MovieController::class)
     ->middleware('auth');
 
     Route::get('/users/profile', [UserController::class, 'show'])->name('users.profile')->middleware('auth');
+
+
+    Route::get('admin/profile', [AdminController::class, 'profileAdmin'])->name('admin.profileAdmin');

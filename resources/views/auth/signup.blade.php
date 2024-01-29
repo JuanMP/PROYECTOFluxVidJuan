@@ -25,11 +25,7 @@
 <label for="password_confirmation">Confirmar Contraseña:</label><br>
 <input type="password" name="password_confirmation" id="password_confirmation"><br>
 
-<label for="rol">Rol:</label><br>
-<select name="rol" id="rol">
-    <option value="user">Usuario</option>
-    <option value="admin">Admin</option>
-</select><br>
+
 
 <button type="submit">Registrarse</button>
 </form>

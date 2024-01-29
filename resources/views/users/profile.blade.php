@@ -1,8 +1,8 @@
 @extends('layout')
 
-@section('title', 'Perfil de usuario');
+@section('title', 'Perfil de usuario')
 
-@section('content');
+@section('content')
 
     <h1>Perfil de usuario</h1>
     <p>Nombre: {{ $user->name }}</p>
