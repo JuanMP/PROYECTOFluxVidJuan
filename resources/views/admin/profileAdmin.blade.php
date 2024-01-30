@@ -8,7 +8,7 @@
 
 @foreach ($users as $user)
     <div>
-        {{ user->name }}
+        {{ $user->name }}
         <form action="{{ route('admin.users.destroy', $user) }}" method="POST">
         @csrf
         @method('DELETE')

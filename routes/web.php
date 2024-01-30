@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 
+use App\Http\Controllers\AdminController;
+
 
 
 
@@ -86,3 +88,10 @@ Route::resource('movies', MovieController::class)
 
 
     Route::get('admin/profile', [AdminController::class, 'profileAdmin'])->name('admin.profileAdmin');
+
+
+    Route::get('admin/profile', [AdminController::class, 'index'])->name('admin.profileAdmin');
+
+
+    Route::delete('admin/users/{user}', [AdminController::class, 'destroy'])->name('admin.users.destroy');
+
