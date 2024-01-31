@@ -87,11 +87,17 @@ Route::resource('movies', MovieController::class)
     Route::get('/users/profile', [UserController::class, 'show'])->name('users.profile')->middleware('auth');
 
 
-    Route::get('admin/profile', [AdminController::class, 'profileAdmin'])->name('admin.profileAdmin');
+    //Route::get('admin/profile', [AdminController::class, 'profileAdmin'])->name('admin.profileAdmin');
 
 
-    Route::get('admin/profile', [AdminController::class, 'index'])->name('admin.profileAdmin');
 
 
-    Route::delete('admin/users/{user}', [AdminController::class, 'destroy'])->name('admin.users.destroy');
+    //ACT 15 MIDDLEWARE
+    Route::middleware(['auth'])->group(function (){
+        Route::get('admin/profile', [AdminController::class, 'index'])->name('admin.users.index');
+        Route::delete('admin/users/{user}', [AdminController::class, 'destroy'])->name('admin.users.destroy');
+        Route::get('/admin/profileAdmin', [AdminController::class, 'index'])->name('admin.profileAdmin');
+
+    });
+
 

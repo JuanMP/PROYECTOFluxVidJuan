@@ -22,7 +22,11 @@ class MovieController extends Controller
          //MODIFICADO
         //ACT7 $movies = Movie::all();
         //ACT7b
-        $movies = Movie::where('visibility', 1)->paginate(6);
+        //$movies = Movie::where('visibility', 1)->paginate(6);
+        //return view('movies.index', compact('movies'));
+
+        $movies = Movie::paginate(6);
+
         return view('movies.index', compact('movies'));
 
     }
